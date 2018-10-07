@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="strus2Test:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/strus2Test_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="strus2Test/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="strus2Test" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="commons-fileupload" />
+          <element id="library" level="project" name="Struts 2-2.5.14.1" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <!--
+        动态方法调用的配置
+    -->
+    <!--
+        第一种动态方法调用:(不符合seo优化)
+           配置动态方法调用常量
+           struts2-core.jar!\org\apache\struts2\default.properties中的
+           struts.enable.DynamicMethodInvocation = false
+           配置动态方法调用常量是否开启,true开启
+    -->
+    <!--    <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+        <package name="dynamic" namespace="/dynamic" extends="struts-default">
+            &lt;!&ndash;因为 struts2.5 为了提升安全性，添加了 allomethod
+                不加下面的语句,用不了http://localhost:8080/stuts2Test/dynamic/Demo2Action!add这种方式
+            &ndash;&gt;
+            <global-allowed-methods>regex:.*</global-allowed-methods>
+            <action name="Demo2Action" class="com.xiaoqi.b_dynamic.Demo2Action">
+                <result name="success">/hello.jsp</result>
+            </action>
+        </package>-->
+
+
+    <!--
+        第二种动态调用方式:通配符方式
+            表达式方式
+         method="{1}:匹配第一个*的内容
+         http://localhost:8080/stuts2Test/dynamic/Demo1Action_delete
+    -->
+
+    <package name="dynamic" namespace="/dynamic" extends="struts-default">
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+        <!-- Demo1Action_* 下换线可以是其他字符,或者不写  -->
+        <action name="Demo1Action_*" class="com.xiaoqi.b_dynamic.Demo1Action" method="{1}">
+            <result name="success">/hello.jsp</result>
+        </action>
+    </package>
+</struts>
